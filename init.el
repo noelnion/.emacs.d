@@ -41,6 +41,11 @@
   :config
   (beacon-mode 1))
 
+(use-package avy
+  :ensure t
+  :bind
+    ("M-s" . avy-goto-char))
+
 (use-package org-bullets
   :ensure t
   :config
@@ -58,6 +63,7 @@
   :config
   (dashboard-setup-startup-hook))
 
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
 (setq dashboard-banner-logo-title "")
 (setq dashboard-footer-messages '(""))
 
@@ -170,7 +176,7 @@
  '(custom-safe-themes
    '("1a6d120936f9df3f44953124dbf9e56b399e021702ca7d1844e6c5e1658b692b" "551629d1e63bb66423dd80b3ec2d1a67611d1fa570e7238201e65b25a3b3834f" "a1c18db2838b593fba371cb2623abd8f7644a7811ac53c6530eebdf8b9a25a8d" "80214de566132bf2c844b9dee3ec0599f65c5a1f2d6ff21a2c8309e6e70f9242" "18cf5d20a45ea1dff2e2ffd6fbcd15082f9aa9705011a3929e77129a971d1cb3" "88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" default))
  '(package-selected-packages
-   '(magit dashboard lsp-mode tao-theme citeproc pdf-tools org-bullets cyberpunk-theme catppuccin-theme zenburn-theme smex beacon doom-themes auctex company which-key)))
+   '(gmsh-mode avy magit dashboard lsp-mode tao-theme citeproc pdf-tools org-bullets cyberpunk-theme catppuccin-theme zenburn-theme smex beacon doom-themes auctex company which-key)))
 (put 'upcase-region 'disabled nil)
 
 (load-theme 'zenburn)
