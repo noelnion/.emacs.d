@@ -51,6 +51,20 @@
   :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+(use-package switch-window
+  :ensure t
+  :config
+    (setq switch-window-input-style 'minibuffer)
+    ;;(setq switch-window-increase 4)
+    (setq switch-window-threshold 2)
+    (setq switch-window-shortcut-style 'qwerty)
+    (setq switch-window-qwerty-shortcuts
+          '("a" "s" "d" "f" "j" "k" "l" "i" "o"))
+  :bind
+    ([remap other-window] . switch-window))
+
+
+
 ;; REPLACED BY FIDO
 ;(use-package smex
 ;  :ensure t)
@@ -145,7 +159,6 @@
 (fido-mode t)
 (fido-vertical-mode t)
 
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -153,17 +166,23 @@
  ;; If there is more than one, they won't work right.
  )
 
-(set-cursor-color "gold2")
+;;(set-cursor-color "gold2")
 
 ;;(when (member "Terminus" (font-family-list))
 ;;  (set-frame-font "Terminus-12" t t))
 
-(when (member "Iosevka Term" (font-family-list))
-  (set-frame-font "Iosevka Term-11" t t))
+;;(when (member "Iosevka Term" (font-family-list))
+;;  (set-frame-font "Iosevka Term-11" t t))
+
+;(when (member "Ubuntu Mono" (font-family-list))
+;  (set-frame-font "Ubuntu Mono-14" t t))
+
+(when (member "Spleen 16x32" (font-family-list))
+  (set-frame-font "Spleen16x32-14" t t))
 
 
 (setq doc-view-resolution 600)
-(pdf-tools-install) 
+;(pdf-tools-install) 
 
 
 
@@ -174,12 +193,22 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("1a6d120936f9df3f44953124dbf9e56b399e021702ca7d1844e6c5e1658b692b" "551629d1e63bb66423dd80b3ec2d1a67611d1fa570e7238201e65b25a3b3834f" "a1c18db2838b593fba371cb2623abd8f7644a7811ac53c6530eebdf8b9a25a8d" "80214de566132bf2c844b9dee3ec0599f65c5a1f2d6ff21a2c8309e6e70f9242" "18cf5d20a45ea1dff2e2ffd6fbcd15082f9aa9705011a3929e77129a971d1cb3" "88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e" default))
+   '("ba4f725d8e906551cfab8c5f67e71339f60fac11a8815f51051ddb8409ea6e5c"
+	 "1a6d120936f9df3f44953124dbf9e56b399e021702ca7d1844e6c5e1658b692b"
+	 "551629d1e63bb66423dd80b3ec2d1a67611d1fa570e7238201e65b25a3b3834f"
+	 "a1c18db2838b593fba371cb2623abd8f7644a7811ac53c6530eebdf8b9a25a8d"
+	 "80214de566132bf2c844b9dee3ec0599f65c5a1f2d6ff21a2c8309e6e70f9242"
+	 "18cf5d20a45ea1dff2e2ffd6fbcd15082f9aa9705011a3929e77129a971d1cb3"
+	 "88f7ee5594021c60a4a6a1c275614103de8c1435d6d08cc58882f920e0cec65e"
+	 default))
  '(package-selected-packages
-   '(gmsh-mode avy magit dashboard lsp-mode tao-theme citeproc pdf-tools org-bullets cyberpunk-theme catppuccin-theme zenburn-theme smex beacon doom-themes auctex company which-key)))
+   '(auctex avy beacon catppuccin-theme citeproc company cyberpunk-theme
+			dashboard doom-themes gmsh-mode haskell-mode lsp-mode
+			magit material-theme org-bullets pdf-tools smex
+			switch-window tao-theme which-key zenburn-theme)))
 (put 'upcase-region 'disabled nil)
 
-(load-theme 'zenburn)
+(load-theme 'material)
 ;;(load-theme 'doom-one)
 ;;(load-theme 'cyberpunk)
 ;;(load-theme 'catppuccin :no-confirm)
