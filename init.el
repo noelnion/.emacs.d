@@ -55,7 +55,7 @@
   :ensure t
   :config
     (setq switch-window-input-style 'minibuffer)
-    ;;(setq switch-window-increase 4)
+    (setq switch-window-increase 4)
     (setq switch-window-threshold 2)
     (setq switch-window-shortcut-style 'qwerty)
     (setq switch-window-qwerty-shortcuts
@@ -63,6 +63,17 @@
   :bind
     ([remap other-window] . switch-window))
 
+(use-package spaceline
+  :ensure t
+  :config
+  (require 'spaceline-config)
+    (setq spaceline-buffer-encoding-abbrev-p nil)
+    (setq spaceline-line-column-p nil)
+    (setq spaceline-line-p nil)
+    (setq powerline-default-separator (quote arrow))
+    (spaceline-spacemacs-theme))
+
+(setq powerline-default-separator nil)
 
 
 ;; REPLACED BY FIDO
@@ -172,10 +183,10 @@
 ;;  (set-frame-font "Terminus-12" t t))
 
 ;;(when (member "Iosevka Term" (font-family-list))
-;;  (set-frame-font "Iosevka Term-11" t t))
+;;  (set-frame-font "Iosevka Term-12" t t))
 
-;(when (member "Ubuntu Mono" (font-family-list))
-;  (set-frame-font "Ubuntu Mono-14" t t))
+;;(when (member "Ubuntu Mono" (font-family-list))
+;;  (set-frame-font "Ubuntu Mono-14" t t))
 
 (when (member "Spleen 16x32" (font-family-list))
   (set-frame-font "Spleen16x32-14" t t))
@@ -204,12 +215,12 @@
  '(package-selected-packages
    '(auctex avy beacon catppuccin-theme citeproc company cyberpunk-theme
 			dashboard doom-themes gmsh-mode haskell-mode lsp-mode
-			magit material-theme org-bullets pdf-tools smex
+			magit material-theme org-bullets pdf-tools smex spaceline
 			switch-window tao-theme which-key zenburn-theme)))
 (put 'upcase-region 'disabled nil)
 
-(load-theme 'material)
-;;(load-theme 'doom-one)
+;;(load-theme 'material)
+(load-theme 'doom-one)
 ;;(load-theme 'cyberpunk)
 ;;(load-theme 'catppuccin :no-confirm)
 ;;(setq catppuccin-flavor 'latte) ;; or 'latte, 'macchiato, or 'mocha
